@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+    font-family: Poppins, sans-serif;
+    color: #000;
+
+    padding: none !important; 
+}
+
+p {
+    font: 400 1rem "Poppins", sans-serif;
+    color: #000;
+
+    margin: none !important;
+}
+
+@media (max-width: 1800px) {
+    html {
+        font-size: 93.75%;
+    }
+}
+
+button {
+    border: 0;
+    cursor: pointer;
+}
