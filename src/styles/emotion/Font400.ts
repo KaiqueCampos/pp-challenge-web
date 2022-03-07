@@ -1,10 +1,10 @@
 import styled from '@emotion/styled'
 
-type CommonFontProps = {
-    isBold: boolean,
+type Font400Props = {
+    isBold?: boolean,
 }
 
-export const CommonFontSize12 = styled.p<CommonFontProps>(
+export const Font400Size12 = styled.p<Font400Props>(
     {
         fontSize: '0.8rem',
         margin: 'initial',
@@ -14,7 +14,7 @@ export const CommonFontSize12 = styled.p<CommonFontProps>(
     props => (props.isBold ? {fontWeight: '600'} : {FontWeight: '400'})
 )
 
-export const CommonFontSize14 = styled.p<CommonFontProps>(
+export const Font400Size14 = styled.p<Font400Props>(
     {
         fontSize: '0.8rem',
         margin: 'initial',

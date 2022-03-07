@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 
-export const Main = styled.main`
+export const InstitutionDashboardContainer = styled.div`
+
     width: 100%;
     height: 100%;
 
@@ -11,6 +12,7 @@ export const Main = styled.main`
     padding: 3.6rem 23.6rem;
 
     @media (max-width: 1550px) {
-        padding: 3.6rem 17rem;
+        padding: 3.6rem 14rem;
     }
 `
+

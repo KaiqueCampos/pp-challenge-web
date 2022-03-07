@@ -1,31 +1,32 @@
-import { CommonFontSize14 } from "../../styles/emotion/CommonFont";
-import { CollaboratorsPositionsButton } from "./emotion/ButtonStyled";
+import { Font400Size14 } from "../../styles/emotion/Font400";
+import { Button } from "./emotion/ButtonStyled";
 import { Container } from "./emotion/ContainerStyled";
 
 export function ToggleCollaboratorsPositionsButton() {
     return (
         <Container>
-            <CollaboratorsPositionsButton
+
+            <Button
                 isActive={true}
             >
-                <CommonFontSize14
+                <Font400Size14
                     isBold={true}
                 >
                     Colaboradores
-                </CommonFontSize14>
+                </Font400Size14>
                 
-            </CollaboratorsPositionsButton>
+            </Button>
 
-            <CollaboratorsPositionsButton
+            <Button
                 isActive={false}
             >
-                 <CommonFontSize14
+                 <Font400Size14
                     isBold={true}
                 >
                     Cargos
-                </CommonFontSize14>
+                </Font400Size14>
 
-            </CollaboratorsPositionsButton>
+            </Button>
         </Container>
     )
 }

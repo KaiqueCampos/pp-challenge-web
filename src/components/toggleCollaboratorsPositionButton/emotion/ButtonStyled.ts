@@ -1,10 +1,10 @@
 import styled from '@emotion/styled'
 
-type CollaboratorsPositionsButtonProps = {
+type ButtonProps = {
     isActive: boolean,
 }
 
-export const CollaboratorsPositionsButton = styled.button<CollaboratorsPositionsButtonProps>({
+export const Button = styled.button<ButtonProps>({
     backgroundColor: '#fff',
     width: '13.5rem',
     paddingBottom: '1rem',

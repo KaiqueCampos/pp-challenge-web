@@ -1,26 +1,23 @@
-import { Container } from "./emotion/ContainerStyled";
-import { LeftDiv } from "./emotion/LeftDivStyled";
-import { Main } from "./emotion/MainStyled";
-import { TitleSize32 } from "../../styles/emotion/Titles";
-import { DashboardContainer } from "./emotion/DashboardContainerStyled";
 import { ToggleCollaboratorsPositionsButton } from "../toggleCollaboratorsPositionButton";
-
+import { SearchCollaboratorsOrPosition } from "../searchCollaboratorsOrPosition";
+import { DashboardContainer } from "./style";
+import { TitleSize16 } from "../../styles/emotion/Titles";
+import { CollaboratorsList } from "../collaboratorsList";
 
 export function Dashboard() {
   return (
-    <Container>
-      <LeftDiv />
 
-      <Main>
-        <TitleSize32>Organização</TitleSize32>
+    <DashboardContainer>
+      <ToggleCollaboratorsPositionsButton />
 
-        <DashboardContainer>
-          <ToggleCollaboratorsPositionsButton />
-        </DashboardContainer>
-       
-       
-      </Main>
+      <SearchCollaboratorsOrPosition
+        placeholder="Pesquisar por nome ou cpf"
+      />
 
-    </Container>
+      <TitleSize16>Lista de Colaboladores</TitleSize16>
+
+      <CollaboratorsList/>
+
+    </DashboardContainer>
   )
 }

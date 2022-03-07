@@ -1,22 +1,20 @@
-import { CommonFontSize12 } from "../../styles/emotion/CommonFont";
+import { Font400Size12 } from "../../styles/emotion/Font400";
 import { TitleSize14 } from "../../styles/emotion/Titles";
-import { Container } from "./emotion/ContainerStyled";
-import { ProfileImage } from "./emotion/ProfileImageStyled";
+import { Container } from "./styles";
 
 export function ProfileInformation() {
   return (
     <Container>
-      <ProfileImage src="profileImage.svg" />
+      <img src="profileImage.svg" />
 
       <div>
         <TitleSize14>Luiz Zlochevsky</TitleSize14>
 
-        <CommonFontSize12
+        <Font400Size12
           color="#587169"
-          isBold={false}
         >
           meus dados
-        </CommonFontSize12>
+        </Font400Size12>
       </div>
     </Container>
   )
