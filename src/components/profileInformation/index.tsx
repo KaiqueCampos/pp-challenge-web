@@ -10,7 +10,13 @@ export function ProfileInformation() {
 
       <div>
         <TitleSize14>Luiz Zlochevsky</TitleSize14>
-        <CommonFontSize12 color="#587169">meus dados</CommonFontSize12>
+
+        <CommonFontSize12
+          color="#587169"
+          isBold={false}
+        >
+          meus dados
+        </CommonFontSize12>
       </div>
     </Container>
   )
