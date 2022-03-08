@@ -1,11 +1,13 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useEffect, useState } from "react";
 import { Collaborator, CollaboratorsDataProps } from "../types/collaboratorsTypes";
 
 type CollaboratorsContextData = {
+    chunk: number, 
     chunkedCollaboratorsList: Collaborator[][] | undefined,
     collaboratorsData : Collaborator[] | undefined,
     handleCollaboratorsData : (props : CollaboratorsDataProps) => void;
     handleCollaboratorsListInChunks: (collaborators : Collaborator[], chunkSize : number) => void;
+    handleChunkValue: (value : number) => void
 }
 
 export const CollaboratorsContext = createContext({} as CollaboratorsContextData)
@@ -16,8 +18,27 @@ type CollaboratorsContextProviderProps = {
 
 export function CollaboratorsContextProvider({ children }: CollaboratorsContextProviderProps) {
 
+    // Collaborators list
     const [collaboratorsData, setCollaboratorsData] = useState<Collaborator[]>()
     const [chunkedCollaboratorsList, setChunkedCollaboratorsList] = useState<Collaborator[][]>()
+    
+    // chunk the collaborators list in parts
+    const [chunk, setChunk] = useState(10)
+
+     // handle collaborators list in chunks each time the page is rendered
+     useEffect(() => {
+        if (collaboratorsData !== undefined) {
+            handleCollaboratorsListInChunks(collaboratorsData, chunk);
+        }
+    }, [collaboratorsData])
+
+    // When the chunk is changed the list will be fragmented according to the number received
+    useEffect(() => {
+        if (collaboratorsData !== undefined) {
+            handleCollaboratorsListInChunks(collaboratorsData, chunk);
+        }
+    }, [chunk])
+
 
     function handleCollaboratorsData({collaborators} : CollaboratorsDataProps){
         setCollaboratorsData(collaborators)
@@ -36,13 +57,19 @@ export function CollaboratorsContextProvider({ children }: CollaboratorsContextP
         setChunkedCollaboratorsList(chunkedList);
     }
 
+    function handleChunkValue(value : number) {
+        setChunk(value)
+    }
+
     return (
         <CollaboratorsContext.Provider
             value={{
+                chunk,
                 chunkedCollaboratorsList,
                 collaboratorsData,
                 handleCollaboratorsData,
-                handleCollaboratorsListInChunks
+                handleCollaboratorsListInChunks,
+                handleChunkValue,
             }}
         >
             {children}
