@@ -10,6 +10,7 @@ type CollaboratorsContextData = {
     handleCollaboratorsListInChunks: (collaborators : Collaborator[], chunkSize : number) => void;
     handleChunkValue: (value : number) => void;
     handleIndexOfChunkedArrayToShow: (indexValue : number) => void;
+    searchCollaborators: (searchInput : string) => void;
 }
 
 export const CollaboratorsContext = createContext({} as CollaboratorsContextData)
@@ -68,6 +69,14 @@ export function CollaboratorsContextProvider({ children }: CollaboratorsContextP
         setindexOfChunkedArrayToShow(indexValue)
     }
 
+    function searchCollaborators(searchInput: string){
+        const response = collaboratorsData?.filter(collaborator => collaborator.name.includes(searchInput));
+
+        if (response !== undefined) {
+            handleCollaboratorsListInChunks(response, response?.length)
+        } 
+    }
+
     return (
         <CollaboratorsContext.Provider
             value={{
@@ -79,6 +88,7 @@ export function CollaboratorsContextProvider({ children }: CollaboratorsContextP
                 handleCollaboratorsListInChunks,
                 handleChunkValue,
                 handleIndexOfChunkedArrayToShow,
+                searchCollaborators,
             }}
         >
             {children}
