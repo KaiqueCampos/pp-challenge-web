@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
 
 export const CollaboratorsListTr = styled.tr`
+
     th{
         color: #587169;
         font: 400 0.8rem Poppins, sans-serif;

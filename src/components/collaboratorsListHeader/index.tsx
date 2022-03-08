@@ -43,6 +43,7 @@ export function CollaboratorsListHeader() {
                     </Font600Size12>
                 </th>
                 <th></th>
+                
             </tr>
         </CollaboratorsListTHead>
     )

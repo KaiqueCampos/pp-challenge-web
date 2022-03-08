@@ -12,23 +12,26 @@ export function CollaboratorsList() {
     } = useCollaborators()
 
     return (
-        <Container cellSpacing={0}>
+        <Container>
+            <table cellSpacing={0}>
 
-            <CollaboratorsListHeader/>
+                <CollaboratorsListHeader />
 
-            <tbody>
-                {chunkedCollaboratorsList !== undefined ? (
-                    chunkedCollaboratorsList[indexOfChunkedArrayToShow]?.map(collaborator => {
-                        return (
-                            <CollaboratorsListItems
-                                key={collaborator.agent_id}
-                                collaborator={collaborator}
-                            />
-                        )
-                    })
-                ) : (<></>)}
-            </tbody>
+                <tbody>
+                    {chunkedCollaboratorsList !== undefined ? (
+                        chunkedCollaboratorsList[indexOfChunkedArrayToShow]?.map(collaborator => {
+                            return (
+                                <CollaboratorsListItems
+                                    key={collaborator.agent_id}
+                                    collaborator={collaborator}
+                                />
+                            )
+                        })
+                    ) : (<></>)}
 
+                </tbody>
+
+            </table>
         </Container>
     )
 }

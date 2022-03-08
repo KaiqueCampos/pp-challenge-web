@@ -7,6 +7,8 @@ export const CollaboratorsListTHead = styled.thead`
 
         padding: 1.2rem 1rem;
 
+        text-align: left;
+
         &:first-child {
             border-left:  1px solid #CAD6D1;
             border-top-left-radius: 0.5rem;
