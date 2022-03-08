@@ -2,12 +2,14 @@ import { createContext, ReactNode, useEffect, useState } from "react";
 import { Collaborator, CollaboratorsDataProps } from "../types/collaboratorsTypes";
 
 type CollaboratorsContextData = {
+    indexOfChunkedArrayToShow: number;
     chunk: number, 
     chunkedCollaboratorsList: Collaborator[][] | undefined,
     collaboratorsData : Collaborator[] | undefined,
     handleCollaboratorsData : (props : CollaboratorsDataProps) => void;
     handleCollaboratorsListInChunks: (collaborators : Collaborator[], chunkSize : number) => void;
-    handleChunkValue: (value : number) => void
+    handleChunkValue: (value : number) => void;
+    handleIndexOfChunkedArrayToShow: (indexValue : number) => void;
 }
 
 export const CollaboratorsContext = createContext({} as CollaboratorsContextData)
@@ -21,7 +23,8 @@ export function CollaboratorsContextProvider({ children }: CollaboratorsContextP
     // Collaborators list
     const [collaboratorsData, setCollaboratorsData] = useState<Collaborator[]>()
     const [chunkedCollaboratorsList, setChunkedCollaboratorsList] = useState<Collaborator[][]>()
-    
+    const [indexOfChunkedArrayToShow, setindexOfChunkedArrayToShow] = useState(0)
+
     // chunk the collaborators list in parts
     const [chunk, setChunk] = useState(10)
 
@@ -61,15 +64,21 @@ export function CollaboratorsContextProvider({ children }: CollaboratorsContextP
         setChunk(value)
     }
 
+    function handleIndexOfChunkedArrayToShow(indexValue : number) {
+        setindexOfChunkedArrayToShow(indexValue)
+    }
+
     return (
         <CollaboratorsContext.Provider
             value={{
+                indexOfChunkedArrayToShow,
                 chunk,
                 chunkedCollaboratorsList,
                 collaboratorsData,
                 handleCollaboratorsData,
                 handleCollaboratorsListInChunks,
                 handleChunkValue,
+                handleIndexOfChunkedArrayToShow,
             }}
         >
             {children}

@@ -10,6 +10,8 @@ export const CollaboratorsListTHead = styled.thead`
         &:first-child {
             border-left:  1px solid #CAD6D1;
             border-top-left-radius: 0.5rem;
+
+            text-align: left;
         }
 
         &:last-child {

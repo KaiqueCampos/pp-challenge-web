@@ -7,6 +7,7 @@ export function CollaboratorsList() {
 
     // get the data from collaborators context
     const {
+        indexOfChunkedArrayToShow,
         chunkedCollaboratorsList,
     } = useCollaborators()
 
@@ -17,7 +18,7 @@ export function CollaboratorsList() {
 
             <tbody>
                 {chunkedCollaboratorsList !== undefined ? (
-                    chunkedCollaboratorsList[0].map(collaborator => {
+                    chunkedCollaboratorsList[indexOfChunkedArrayToShow]?.map(collaborator => {
                         return (
                             <CollaboratorsListItems
                                 key={collaborator.agent_id}

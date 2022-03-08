@@ -11,6 +11,9 @@ export function SearchCollaboratorsOrPosition({placeholder} : SearchCollaborator
             <legend>
                 <Font500Size14
                     color="#A3B8B0"
+                    style={{
+                        padding: '0 0.4rem'
+                    }}
                 >
                     Pesquise por
                 </Font500Size14>

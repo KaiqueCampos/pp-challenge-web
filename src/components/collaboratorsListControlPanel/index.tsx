@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useCollaborators } from "../../hooks/useCollaborators";
 import { Font400Size16 } from "../../styles/emotion/Font400";
 import { Font600Size12 } from "../../styles/emotion/Font600";
@@ -5,7 +6,25 @@ import { ControlPanel } from "./styles";
 
 export function CollaboratorsListControlPanel() {
 
-    const { handleChunkValue } = useCollaborators()
+    const {
+        indexOfChunkedArrayToShow,
+        chunk,
+        chunkedCollaboratorsList,
+        collaboratorsData,
+        handleChunkValue,
+        handleIndexOfChunkedArrayToShow,
+    } = useCollaborators()
+
+    const [numberOfItemsShown, setNumberOfItemsShown] = useState(10);
+
+    // Check if chunked collaborators list are undefined
+    const numberOfIndexOnChunkedList = chunkedCollaboratorsList !== undefined ? chunkedCollaboratorsList?.length : 0;
+
+    // Returns the value of the index of the chunked collaborators list array to 0 when the chunk value changes
+    useEffect(() => {
+        handleIndexOfChunkedArrayToShow(0)
+        setNumberOfItemsShown(chunk)
+    }, [chunk])
 
     return (
         <ControlPanel>
@@ -14,13 +33,24 @@ export function CollaboratorsListControlPanel() {
                 <Font400Size16
                     color="#587169"
                 >
-                    Mostrando 10 de 50 registros
+                    Mostrando &nbsp;
+
+                    {
+                        collaboratorsData !== undefined
+                            ? (numberOfItemsShown >= collaboratorsData?.length ? collaboratorsData.length : numberOfItemsShown)
+                            : ''
+                    }
+
+                    &nbsp;
+                    de {collaboratorsData?.length} registros
                 </Font400Size16>
 
                 <div className="controlChunk">
                     <select
                         onChange={(e) => handleChunkValue(parseInt(e.target.value))}
                     >
+                        <option>{2}</option>
+                        <option>{5}</option>
                         <option>{10}</option>
                         <option>{15}</option>
                         <option>{20}</option>
@@ -34,17 +64,41 @@ export function CollaboratorsListControlPanel() {
             </div>
 
             <div>
-                <button>
+                <button
+                    onClick={() => {
+                        handleIndexOfChunkedArrayToShow(indexOfChunkedArrayToShow - 1)
+                        setNumberOfItemsShown(chunk * indexOfChunkedArrayToShow)
+                    }}
+                    disabled={indexOfChunkedArrayToShow <= 0}
+                >
                     <img src="leftArrow.svg" />
                 </button>
 
                 <Font600Size12
                     color="#587169"
                 >
-                    1 de 10
+                    {
+                        indexOfChunkedArrayToShow <= 0
+                            ? 1
+                            : (indexOfChunkedArrayToShow >= numberOfIndexOnChunkedList
+                                ? numberOfIndexOnChunkedList
+                                : indexOfChunkedArrayToShow + 1
+                            )
+
+                    } de {chunkedCollaboratorsList?.length}
                 </Font600Size12>
 
-                <button>
+                <button
+                    onClick={() => {
+                        handleIndexOfChunkedArrayToShow(indexOfChunkedArrayToShow + 1)
+                        setNumberOfItemsShown(
+                            chunk >= 0
+                                ? chunk * (indexOfChunkedArrayToShow + 2)
+                                : chunk * (indexOfChunkedArrayToShow + 1)
+                        )
+                    }}
+                    disabled={indexOfChunkedArrayToShow >= numberOfIndexOnChunkedList - 1}
+                >
                     <img src="rightArrow.svg" />
                 </button>
             </div>

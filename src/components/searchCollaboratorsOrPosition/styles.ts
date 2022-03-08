@@ -12,7 +12,7 @@ export const Fieldset = styled.fieldset`
     gap: 0.6rem;
 
     legend {
-        padding: 0 0.2rem,
+        padding: 0 0.4rem,
     }
 
     input {
