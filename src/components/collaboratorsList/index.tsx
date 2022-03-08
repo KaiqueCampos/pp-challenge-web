@@ -1,6 +1,8 @@
+import { useEffect } from "react";
 import { useCollaborators } from "../../hooks/useCollaborators";
 import { Font500Size14 } from "../../styles/emotion/Font500";
 import { Font600Size12 } from "../../styles/emotion/Font600";
+import { Collaborator } from "../../types/collaboratorsTypes";
 import { CollaboratorsActiveOrInactiveStatus } from "../collaboratorsActiveOrInactiveStatus";
 import { CollaboratorsListHeader } from "../collaboratorsListHeader";
 import { Container } from "./style";
@@ -8,12 +10,24 @@ import { Container } from "./style";
 export function CollaboratorsList() {
 
     // get the data from collaborators context
-    const { collaboratorsData } = useCollaborators()
+    const {
+        collaboratorsData,
+        chunkedCollaboratorsList,
+        handleCollaboratorsListInChunks
+    } = useCollaborators()
+
+    useEffect(() => {
+        if (collaboratorsData !== undefined) {
+            handleCollaboratorsListInChunks(collaboratorsData, 10);
+            console.log(chunkedCollaboratorsList);
+        }
+    }, [])
+
 
     return (
         <Container cellSpacing={0}>
             <thead>
-                <CollaboratorsListHeader/>
+                <CollaboratorsListHeader />
             </thead>
 
             <tbody>
@@ -41,7 +55,7 @@ export function CollaboratorsList() {
                                 <th>
                                     <CollaboratorsActiveOrInactiveStatus
                                         isActive={collaborator.status}
-                                    >   
+                                    >
                                         <Font500Size14
                                             color="#34423D"
                                         >
