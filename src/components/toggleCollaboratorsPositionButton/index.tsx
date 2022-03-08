@@ -1,4 +1,4 @@
-import { Font400Size14 } from "../../styles/emotion/Font400";
+import { Font600Size14 } from "../../styles/emotion/Font600";
 import { Button } from "./emotion/ButtonStyled";
 import { Container } from "./emotion/ContainerStyled";
 
@@ -9,24 +9,15 @@ export function ToggleCollaboratorsPositionsButton() {
             <Button
                 isActive={true}
             >
-                <Font400Size14
-                    isBold={true}
-                >
-                    Colaboradores
-                </Font400Size14>
-                
+                <Font600Size14>Colaboradores</Font600Size14>
             </Button>
 
             <Button
                 isActive={false}
             >
-                 <Font400Size14
-                    isBold={true}
-                >
-                    Cargos
-                </Font400Size14>
-
+                <Font600Size14>Cargos</Font600Size14>
             </Button>
+
         </Container>
     )
 }

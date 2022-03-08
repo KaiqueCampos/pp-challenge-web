@@ -1,10 +1,9 @@
 import styled from '@emotion/styled'
 
 export const Container = styled.table`
-
     width: 100%;
 
-        thead{
+    thead{
             th, td{
             border-top: 1px solid #CAD6D1;
             border-bottom: 1px solid #CAD6D1;
@@ -19,16 +18,27 @@ export const Container = styled.table`
                 border-top-right-radius: 0.5rem;
             }
         }
+    }
 
-        }
+    th{
+        color: #587169;
+        font: 400 0.8rem Poppins, sans-serif;
+        text-align: left;
 
-        th, td{
-            padding: 0.75rem 1rem;
-        }
+        padding: 1.2rem 1rem;
+        border-bottom: 1px solid #EAEFED; 
+    }
 
-        th{
-            color: #587169;
-            font: 400 0.8rem Poppins, sans-serif;
-            text-align: left;
+
+    .collaboratorsNameAndProfileImage{
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;        
+
+        .collaboratorsProfileImage{
+            width: 2.1rem;
+            height: 2.1rem;
+            border-radius: 50%;
         }
+    }    
 `

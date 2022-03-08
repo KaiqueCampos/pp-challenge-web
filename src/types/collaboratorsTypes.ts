@@ -5,7 +5,7 @@ export type Collaborator = {
     department: string,
     branch: string,
     role: string,
-    inactivestatus: string,
+    status: string,
 }
 
 export type CollaboratorsDataProps = {

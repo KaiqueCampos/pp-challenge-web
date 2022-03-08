@@ -1,4 +1,8 @@
 import { useCollaborators } from "../../hooks/useCollaborators";
+import { Font500Size14 } from "../../styles/emotion/Font500";
+import { Font600Size12 } from "../../styles/emotion/Font600";
+import { CollaboratorsActiveOrInactiveStatus } from "../collaboratorsActiveOrInactiveStatus";
+import { CollaboratorsListHeader } from "../collaboratorsListHeader";
 import { Container } from "./style";
 
 export function CollaboratorsList() {
@@ -9,14 +13,7 @@ export function CollaboratorsList() {
     return (
         <Container cellSpacing={0}>
             <thead>
-                <tr>
-                    <th>Nome completo</th>
-                    <th>Departamento</th>
-                    <th>Cargo</th>
-                    <th>Unidade</th>
-                    <th>Status</th>
-                    <th></th>
-                </tr>
+                <CollaboratorsListHeader/>
             </thead>
 
             <tbody>
@@ -24,11 +21,34 @@ export function CollaboratorsList() {
                     collaboratorsData.map(collaborator => {
                         return (
                             <tr key={collaborator.agent_id}>
-                                <th>{collaborator.name}</th>
+                                <th>
+                                    <div className="collaboratorsNameAndProfileImage">
+                                        <img
+                                            className="collaboratorsProfileImage"
+                                            src={collaborator.image}
+                                        />
+
+                                        <Font600Size12
+                                            color="#587169"
+                                        >
+                                            {collaborator.name}
+                                        </Font600Size12>
+                                    </div>
+                                </th>
                                 <th>{collaborator.department}</th>
                                 <th>{collaborator.role}</th>
                                 <th>{collaborator.branch}</th>
-                                <th>{collaborator.inactivestatus}</th>
+                                <th>
+                                    <CollaboratorsActiveOrInactiveStatus
+                                        isActive={collaborator.status}
+                                    >   
+                                        <Font500Size14
+                                            color="#34423D"
+                                        >
+                                            {collaborator.status === 'active' ? 'Ativo' : 'Inativo'}
+                                        </Font500Size14>
+                                    </CollaboratorsActiveOrInactiveStatus>
+                                </th>
                                 <th>
                                     <img src="settingsIcon.svg" />
                                 </th>
