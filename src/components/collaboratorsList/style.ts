@@ -30,5 +30,7 @@ export const Container = styled.div`
 
     table {
         width: 100%;
+
+        position: relative;
     }
 `

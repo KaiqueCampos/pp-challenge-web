@@ -3,9 +3,9 @@ import { Collaborator, CollaboratorsDataProps } from "../types/collaboratorsType
 
 type CollaboratorsContextData = {
     indexOfChunkedArrayToShow: number;
-    chunk: number, 
-    chunkedCollaboratorsList: Collaborator[][] | undefined,
-    collaboratorsData : Collaborator[] | undefined,
+    chunk: number;
+    chunkedCollaboratorsList: Collaborator[][] | undefined;
+    collaboratorsData : Collaborator[] | undefined;
     handleCollaboratorsData : (props : CollaboratorsDataProps) => void;
     handleCollaboratorsListInChunks: (collaborators : Collaborator[], chunkSize : number) => void;
     handleChunkValue: (value : number) => void;
@@ -70,6 +70,7 @@ export function CollaboratorsContextProvider({ children }: CollaboratorsContextP
     }
 
     function searchCollaborators(searchInput: string){
+
         const response = collaboratorsData?.filter(collaborator => collaborator.name.includes(searchInput));
 
         if (response !== undefined) {
