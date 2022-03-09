@@ -1,14 +1,22 @@
 import { useCollaborators } from "../../hooks/useCollaborators";
+import { useRoles } from "../../hooks/useRoles";
 import { Font500Size14 } from "../../styles/emotion/Font500";
 import { Fieldset } from "./styles";
 
-type SearchCollaboratorsOrPositionProps = {
+type SearchInputDashboardProps = {
     placeholder: string
 }
 
-export function SearchCollaboratorsOrPosition({ placeholder }: SearchCollaboratorsOrPositionProps) {
+export function SearchInputDashboard({ placeholder }: SearchInputDashboardProps) {
 
     const {
+        backupRolesData,
+        searchRoles,
+        setRolesBackupDataInRolesData
+    } = useRoles()
+
+    const {
+        collaboratorsIsActive,
         collaboratorsData,
         searchCollaborators,
         handleCollaboratorsListInChunks,
@@ -34,11 +42,20 @@ export function SearchCollaboratorsOrPosition({ placeholder }: SearchCollaborato
                 type="text"
                 placeholder={placeholder}
                 onChange={(e) => {
-                    
-                    searchCollaborators(e.target.value)
 
-                    if (e.target.value === '' && collaboratorsData !== undefined) {
-                        handleCollaboratorsListInChunks(collaboratorsData, 10)
+                    if (collaboratorsIsActive) {
+                        searchCollaborators(e.target.value)
+
+                        if (e.target.value === '' && collaboratorsData !== undefined) {
+                            handleCollaboratorsListInChunks(collaboratorsData, 10)
+                        }
+
+                    } else {
+                        searchRoles(e.target.value)
+
+                        if (e.target.value === '' && backupRolesData !== undefined) {
+                            setRolesBackupDataInRolesData(backupRolesData)
+                        }
                     }
                 }}
             />

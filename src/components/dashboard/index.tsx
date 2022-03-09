@@ -1,25 +1,43 @@
-import { ToggleCollaboratorsPositionsButton } from "../toggleCollaboratorsPositionButton";
-import { SearchCollaboratorsOrPosition } from "../searchCollaboratorsOrPosition";
-import { DashboardContainer } from "./style";
+import { useCollaborators } from "../../hooks/useCollaborators";
 import { TitleSize16 } from "../../styles/emotion/Titles";
-import { CollaboratorsList } from "../collaboratorsList";
 import { CollaboratorsListControlPanel } from "../collaboratorsListControlPanel";
-import { DashboardHeader } from "../dashboardHeader";
+import { DashboardList } from "../dashboardList";
+import { RolesListControlPanel } from "../rolesListControlPanel";
+import { SearchInputDashboard } from "../SearchInputDashboard";
+import { ToggleCollaboratorsPositionsButton } from "../toggleCollaboratorsPositionButton";
+import { DashboardContainer } from "./style";
 
 export function Dashboard() {
+
+  const { collaboratorsIsActive } = useCollaborators()
+
   return (
 
     <DashboardContainer>
       <ToggleCollaboratorsPositionsButton />
 
-      <SearchCollaboratorsOrPosition
-        placeholder="Pesquisar por nome ou cpf"
+      <SearchInputDashboard
+        placeholder={
+          collaboratorsIsActive
+            ? "Pesquisar por nome ou cpf"
+            : "Pesquise por cargos"
+        }
       />
       
-      <TitleSize16>Lista de Colaboladores</TitleSize16>
+      <TitleSize16>
+        {collaboratorsIsActive ? "Lista de Colaboradores" : "Listagem de cargos"}
+      </TitleSize16>
 
-      <CollaboratorsList />
-      <CollaboratorsListControlPanel />
+      <DashboardList />
+
+      {
+        // checks which panel to show according to the selected list, collaborators or roles
+        collaboratorsIsActive ? (
+          <CollaboratorsListControlPanel />
+        ) : (
+          <RolesListControlPanel />
+        )
+      }
 
     </DashboardContainer>
   )

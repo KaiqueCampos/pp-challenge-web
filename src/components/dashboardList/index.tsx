@@ -5,7 +5,7 @@ import { CollaboratorsListItems } from "../collaboratorsListItems";
 import { RolesListItems } from "../rolesListItems";
 import { Container } from "./style";
 
-export function CollaboratorsList() {
+export function DashboardList() {
 
     // get the data from collaborators context
     const {
@@ -14,7 +14,9 @@ export function CollaboratorsList() {
         chunkedCollaboratorsList,
     } = useCollaborators()
 
-    const { rolesData } = useRoles()
+    const { 
+        rolesData,
+     } = useRoles()
 
     return (
         <Container>
@@ -47,7 +49,7 @@ export function CollaboratorsList() {
                                 rolesData.map(roles => {
                                     return (
                                         <RolesListItems
-                                            key={roles.name}
+                                            key={rolesData.indexOf(roles)}
                                             role={roles}
                                         />
                                     )
@@ -57,8 +59,7 @@ export function CollaboratorsList() {
 
                     )
                 }
-
-
+                
             </table>
         </Container >
     )

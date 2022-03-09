@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { useCollaborators } from "../../hooks/useCollaborators";
+import { useRoles } from "../../hooks/useRoles";
 import { Font400Size16 } from "../../styles/emotion/Font400";
 import { Font600Size12 } from "../../styles/emotion/Font600";
+import { ControlButton } from "../controlPanelButton/styles";
 import { ControlPanel } from "./styles";
 
 export function CollaboratorsListControlPanel() {
@@ -62,7 +64,7 @@ export function CollaboratorsListControlPanel() {
             </div>
 
             <div>
-                <button
+                <ControlButton
                     onClick={() => {
                         handleIndexOfChunkedArrayToShow(indexOfChunkedArrayToShow - 1)
                         setNumberOfItemsShown(chunk * indexOfChunkedArrayToShow)
@@ -70,7 +72,7 @@ export function CollaboratorsListControlPanel() {
                     disabled={indexOfChunkedArrayToShow <= 0}
                 >
                     <img src="leftArrow.svg" />
-                </button>
+                </ControlButton>
 
                 <Font600Size12
                     color="#587169"
@@ -86,7 +88,7 @@ export function CollaboratorsListControlPanel() {
                     } de {chunkedCollaboratorsList?.length}
                 </Font600Size12>
 
-                <button
+                <ControlButton
                     onClick={() => {
                         handleIndexOfChunkedArrayToShow(indexOfChunkedArrayToShow + 1)
                         setNumberOfItemsShown(
@@ -98,7 +100,7 @@ export function CollaboratorsListControlPanel() {
                     disabled={indexOfChunkedArrayToShow >= numberOfIndexOnChunkedList - 1}
                 >
                     <img src="rightArrow.svg" />
-                </button>
+                </ControlButton>
             </div>
 
         </ControlPanel>
