@@ -19,6 +19,8 @@ type CollaboratorDetailsPersonalInformationProps = {
 
 export function CollaboratorDetailsPersonalInformation(props: CollaboratorDetailsPersonalInformationProps) {
 
+    const birthdayDate = moment(props.birth_date,).format("DD/MM/YYYY");
+
     return (
         <Container>
 
@@ -30,13 +32,13 @@ export function CollaboratorDetailsPersonalInformation(props: CollaboratorDetail
 
                 <div className="information">
                     <Font400Size12
-                        color="#CAD6D"
+                        color="#587169"
                     >
                         {props.document.type}
                     </Font400Size12>
 
                     <Font600Size14
-                        color="#587169"
+                        color="#34423D"
                     >
                         {props.document.number}
                     </Font600Size14>
@@ -52,13 +54,13 @@ export function CollaboratorDetailsPersonalInformation(props: CollaboratorDetail
 
                 <div className="information">
                     <Font400Size12
-                        color="#CAD6D"
+                        color="#587169"
                     >
                         Telefone
                     </Font400Size12>
 
                     <Font600Size14
-                        color="#587169"
+                        color="#34423D"
                     >
                         {`+${props.phone.ddi} (${props.phone.ddd}) ${props.phone.number}`}
                     </Font600Size14>
@@ -74,15 +76,15 @@ export function CollaboratorDetailsPersonalInformation(props: CollaboratorDetail
 
                 <div className="information">
                     <Font400Size12
-                        color="#CAD6D"
+                        color="#587169"
                     >
                         Nascimento
                     </Font400Size12>
 
                     <Font600Size14
-                        color="#587169"
+                        color="#34423D"
                     >
-                        {props.birth_date}
+                        {birthdayDate}
                     </Font600Size14>
                 </div>
 

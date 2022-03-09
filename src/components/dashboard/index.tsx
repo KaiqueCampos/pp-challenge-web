@@ -15,10 +15,6 @@ export function Dashboard() {
       <SearchCollaboratorsOrPosition
         placeholder="Pesquisar por nome ou cpf"
       />
-
-      <DashboardHeader
-        title="Lista de colaboradores"
-      />
       
       <TitleSize16>Lista de Colaboladores</TitleSize16>
 

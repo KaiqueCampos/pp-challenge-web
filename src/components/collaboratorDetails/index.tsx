@@ -2,6 +2,7 @@ import { Font600Size18 } from "../../styles/emotion/Font600";
 import { CollaboratorDetailsProps } from "../../types/collaboratorsTypes";
 import { CollaboratorsDetailsHeader } from "../collaboratorDetailsHeader";
 import { CollaboratorDetailsPersonalInformation } from "../collaboratorDetailsPersonalInformation";
+import { CollaboratorsDetailsOrganizationalData } from "../collaboratorsDetailsOrganizationalData";
 import { Container } from "./styles";
 
 type DashboardCollaboratorsDetailsProps = {
@@ -29,6 +30,13 @@ export function DashboardCollaboratorsDetails({ collaborator }: DashboardCollabo
                 birth_date={collaborator.birth_date}
                 phone={collaborator.phone}
                 document={collaborator.document}
+            />
+
+            <CollaboratorsDetailsOrganizationalData
+                department={collaborator.department}
+                branch={collaborator.branch}
+                role={collaborator.role}
+                status={collaborator.status}
             />
         </Container>
     )

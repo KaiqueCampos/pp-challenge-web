@@ -11,4 +11,6 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
+
+    border-radius: 0.5rem;
 `

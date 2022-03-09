@@ -49,8 +49,6 @@ export function CollaboratorsListControlPanel() {
                     <select
                         onChange={(e) => handleChunkValue(parseInt(e.target.value))}
                     >
-                        <option>{2}</option>
-                        <option>{5}</option>
                         <option>{10}</option>
                         <option>{15}</option>
                         <option>{20}</option>

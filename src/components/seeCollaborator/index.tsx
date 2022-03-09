@@ -37,7 +37,7 @@ export function SeeCollaborator({agent_id} : CollaboratorProps) {
                 <Font500Size16
                     color="#587169"
                 >
-                    Ver Colaborador
+                    Deletar
                 </Font500Size16>
             </button>
 
