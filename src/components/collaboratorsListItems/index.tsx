@@ -1,6 +1,4 @@
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import { useCollaborators } from "../../hooks/useCollaborators";
+import { useState } from "react";
 import { Font500Size14 } from "../../styles/emotion/Font500";
 import { Font600Size12 } from "../../styles/emotion/Font600";
 import { Collaborator } from "../../types/collaboratorsTypes";
@@ -16,11 +14,11 @@ export function CollaboratorsListItems({ collaborator }: CollaboratorsListItemPr
 
     const [seeCollaboratorIsActive, setSeeCollaboratorIsActive] = useState(false)
 
-    function toggleSeeCollaborator(){
+    function toggleSeeCollaborator() {
 
         // hides the other "SeeCollaborators" elements from the screen
         const element = document.querySelectorAll<HTMLElement>('#seeCollaborator')
-        for (var i = 0; element.length > i; i++){
+        for (var i = 0; element.length > i; i++) {
             element[i].style.display = 'none'
         }
 
@@ -29,7 +27,10 @@ export function CollaboratorsListItems({ collaborator }: CollaboratorsListItemPr
 
     return (
         <>
-            <CollaboratorsListTr key={collaborator.agent_id}>
+            <CollaboratorsListTr
+                key={collaborator.agent_id}
+                id="collaboratorsList"
+            >
                 <th>
                     <div className="collaboratorsNameAndProfileImage">
                         <img
@@ -69,7 +70,7 @@ export function CollaboratorsListItems({ collaborator }: CollaboratorsListItemPr
             </CollaboratorsListTr>
 
             {seeCollaboratorIsActive && (
-                <SeeCollaborator 
+                <SeeCollaborator
                     agent_id={collaborator.agent_id}
                 />
             )}

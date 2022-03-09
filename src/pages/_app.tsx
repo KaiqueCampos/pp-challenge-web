@@ -1,12 +1,15 @@
 import type { AppProps } from 'next/app'
 import { CollaboratorsContextProvider } from '../contexts/CollaboratorsContext'
+import { RolesContextProvider } from '../contexts/RolesContext'
 import '../styles/global.css'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
 
     <CollaboratorsContextProvider>
-      <Component {...pageProps} />
+      <RolesContextProvider>
+        <Component {...pageProps} />
+      </RolesContextProvider>
     </CollaboratorsContextProvider>
   )
 }

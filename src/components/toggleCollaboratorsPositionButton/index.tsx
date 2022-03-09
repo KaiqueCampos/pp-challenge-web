@@ -1,19 +1,27 @@
+import { useCollaborators } from "../../hooks/useCollaborators";
 import { Font600Size14 } from "../../styles/emotion/Font600";
-import { Button } from "./emotion/ButtonStyled";
-import { Container } from "./emotion/ContainerStyled";
+import { Button, Container } from './styles'
 
 export function ToggleCollaboratorsPositionsButton() {
+
+    const {
+        collaboratorsIsActive,
+        toggleCollaboratorsIsActive
+    } = useCollaborators()
+
     return (
         <Container>
 
             <Button
-                isActive={true}
+                isActive={collaboratorsIsActive && true}
+                onClick={() => toggleCollaboratorsIsActive(true)}
             >
                 <Font600Size14>Colaboradores</Font600Size14>
             </Button>
 
             <Button
-                isActive={false}
+                isActive={collaboratorsIsActive === false && true}
+                onClick={() => toggleCollaboratorsIsActive(false)}
             >
                 <Font600Size14>Cargos</Font600Size14>
             </Button>
