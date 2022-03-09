@@ -69,7 +69,9 @@ export function CollaboratorsListItems({ collaborator }: CollaboratorsListItemPr
             </CollaboratorsListTr>
 
             {seeCollaboratorIsActive && (
-                <SeeCollaborator />
+                <SeeCollaborator 
+                    agent_id={collaborator.agent_id}
+                />
             )}
         </>
     )

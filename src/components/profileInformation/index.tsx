@@ -5,7 +5,7 @@ import { Container } from "./styles";
 export function ProfileInformation() {
   return (
     <Container>
-      <img src="profileImage.svg" />
+      <img src="/profileImage.svg" />
 
       <div>
         <TitleSize14>Luiz Zlochevsky</TitleSize14>

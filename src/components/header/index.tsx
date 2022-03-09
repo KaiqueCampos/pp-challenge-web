@@ -10,7 +10,7 @@ export function Header() {
                 width="6.6rem"
                 borderRight="1px solid #EAEFED"
             >
-                <Brand src="brand.svg" />
+                <Brand src="/brand.svg" />
             </Div>
 
             <Div
