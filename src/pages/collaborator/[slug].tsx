@@ -23,7 +23,7 @@ const CollaboratorPage: NextPage<CollaboratorPageProps> = ({ collaborator }) => 
                 <LeftDiv />
 
                 <InstitutionDashboardContainer>
-                    
+
                     <DashboardHeader
                         title="Detalhes do colaborador"
                         hasBackButton={true}
@@ -52,11 +52,21 @@ export const getStaticPaths: GetStaticPaths = async () => {
     // Get the collaborators list inside items
     const data = items as Collaborator[]
 
+    {/*
+        The parameters received in paths will have a value of "1",
+        because this is the only id available in the API to fetch the details of the collaborator, 
+        to fetch the other collaborators (when they are available in the API) 
+        just assign the value collaborator.agent_id.toString() in slug  
+    */}
+
+    const onlyAvailableId = 1;
+
     // Creates a path for all collaborators using the agent_id
     const paths = data.map(collaborator => {
         return {
             params: {
-                slug: collaborator.agent_id.toString()
+                slug: onlyAvailableId.toString(),
+                // slug: collaborator.agent_id.toString()
             }
         }
     })

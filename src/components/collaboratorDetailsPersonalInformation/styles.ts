@@ -43,7 +43,7 @@ export const PersonalInformation = styled.div`
         align-items: center;
 
         p{
-            line-height: 0.8rem;
+            line-height: 0.9rem;
         }
     }
 `   
