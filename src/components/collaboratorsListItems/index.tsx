@@ -3,7 +3,7 @@ import { Font500Size14 } from "../../styles/emotion/Font500";
 import { Font600Size12 } from "../../styles/emotion/Font600";
 import { Collaborator } from "../../types/collaboratorsTypes";
 import { CollaboratorsActiveOrInactiveStatus } from "../collaboratorsActiveOrInactiveStatus";
-import { SeeCollaborator } from "../seeCollaborator";
+import { DashboardSeeMoreInformations } from "../dashboardSeeMoreInformation";
 import { CollaboratorsListTr } from "./styles";
 
 type CollaboratorsListItemProps = {
@@ -70,7 +70,7 @@ export function CollaboratorsListItems({ collaborator }: CollaboratorsListItemPr
             </CollaboratorsListTr>
 
             {seeCollaboratorIsActive && (
-                <SeeCollaborator
+                <DashboardSeeMoreInformations
                     agent_id={collaborator.agent_id}
                 />
             )}
