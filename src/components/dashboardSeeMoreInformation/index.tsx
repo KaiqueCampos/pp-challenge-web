@@ -53,12 +53,8 @@ export function DashboardSeeMoreInformations({ agent_id, activatedByRolesList }:
             {
                 activatedByRolesList && (
                     <>
-                        {/* The link parameter is "1" because in the API you can only see the details of the collaborator with id = 1. 
-                        To see other collaborators (if they are available in the API) 
-                        just change the href to `collaborator/${agent_id}` */}
-
                         <Link
-                            href={`collaborator/1`}
+                            href={`role`}
                             passHref
                         >
                             <button>
