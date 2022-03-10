@@ -1,10 +1,10 @@
 import { useCollaborators } from "../../hooks/useCollaborators";
 import { TitleSize16 } from "../../styles/emotion/Titles";
-import { CollaboratorsListControlPanel } from "../collaboratorsListControlPanel";
-import { DashboardList } from "../dashboardList";
-import { RolesListControlPanel } from "../rolesListControlPanel";
-import { SearchInputDashboard } from "../SearchInputDashboard";
-import { ToggleCollaboratorsPositionsButton } from "../toggleCollaboratorsPositionButton";
+import { CollaboratorsListControlPanel } from "../collaborator/collaboratorsListControlPanel";
+import { RolesListControlPanel } from "../roles/rolesListControlPanel";
+import { DashboardList } from "./components/dashboardList";
+import { DashboardSearchInput } from "./components/dashboardSearchInput";
+import { DashboardToggleCollaboratorsPositionsButton } from "./components/dashboardToggleCollaboratorsPositionButton";
 import { DashboardContainer } from "./style";
 
 export function Dashboard() {
@@ -14,9 +14,9 @@ export function Dashboard() {
   return (
 
     <DashboardContainer>
-      <ToggleCollaboratorsPositionsButton />
+      <DashboardToggleCollaboratorsPositionsButton />
 
-      <SearchInputDashboard
+      <DashboardSearchInput
         placeholder={
           collaboratorsIsActive
             ? "Pesquisar por nome ou cpf"

@@ -1,8 +1,8 @@
 import { Font600Size18 } from "../../styles/emotion/Font600";
 import { CollaboratorDetailsProps } from "../../types/collaboratorsTypes";
-import { CollaboratorsDetailsHeader } from "../collaboratorDetailsHeader";
-import { CollaboratorDetailsPersonalInformation } from "../collaboratorDetailsPersonalInformation";
-import { CollaboratorsDetailsOrganizationalData } from "../collaboratorsDetailsOrganizationalData";
+import { CollaboratorsDetailsHeader } from "./components/collaboratorDetailsHeader";
+import { CollaboratorDetailsPersonalInformation } from "./components/collaboratorDetailsPersonalInformation";
+import { CollaboratorsDetailsOrganizationalData } from "./components/collaboratorsDetailsOrganizationalData";
 import { Container } from "./styles";
 
 type DashboardCollaboratorsDetailsProps = {

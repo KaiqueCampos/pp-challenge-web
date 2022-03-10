@@ -1,12 +1,11 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { DashboardCollaboratorsDetails } from "../../components/collaboratorDetails";
-import { DashboardHeader } from "../../components/dashboardHeader";
+import { DashboardHeader } from "../../components/dashboard/components/dashboardHeader";
 import { Header } from "../../components/header";
 import { InstitutionDashboardContainer } from "../../components/institutionDashboardContainer/style";
 import { LeftDiv } from "../../components/leftDiv";
 import { Main } from "../../components/main/style";
 import { api } from "../../services/api";
-import { TitleSize32 } from "../../styles/emotion/Titles";
 import { Collaborator, CollaboratorDetailsProps } from "../../types/collaboratorsTypes";
 
 type CollaboratorPageProps = {

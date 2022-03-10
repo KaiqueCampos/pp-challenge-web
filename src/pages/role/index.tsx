@@ -1,19 +1,19 @@
 import { GetServerSideProps, NextPage } from "next";
-import { DashboardHeader } from "../../components/dashboardHeader";
-import { Header } from "../../components/header";
+import { DashboardHeader } from "../../components/dashboard/components/dashboardHeader";
 import { InstitutionDashboardContainer } from "../../components/institutionDashboardContainer/style";
+import { Header } from "../../components/header";
 import { LeftDiv } from "../../components/leftDiv";
 import { Main } from "../../components/main/style";
-import { RolesAndPermitionsDashboard } from "../../components/rolesAndPerimitions";
+import { RolesAndPermissionsDashboard } from "../../components/rolesAndPermissions";
 import { api } from "../../services/api";
 import { RolePermissions } from "../../types/rolesTypes";
 
 
-type RolesRolesAndPermitions = {
+type RolesRolesAndPermissions = {
     role : RolePermissions;
 }
 
-const Role: NextPage<RolesRolesAndPermitions> = ({role}) => {
+const Role: NextPage<RolesRolesAndPermissions> = ({role}) => {
     return(
         <div id="container">
             <Header />
@@ -28,7 +28,7 @@ const Role: NextPage<RolesRolesAndPermitions> = ({role}) => {
                         hasBackButton={true}
                     />
 
-                    <RolesAndPermitionsDashboard
+                    <RolesAndPermissionsDashboard
                         role={role}
                     />
 
