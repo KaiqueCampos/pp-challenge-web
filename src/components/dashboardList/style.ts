@@ -2,14 +2,10 @@ import styled from '@emotion/styled'
 
 export const Container = styled.div`
 
-    height: 30rem;
+    height: 40vh;
     overflow-y: auto;
     
     padding-right: 0.5rem;
-
-    @media (max-width: 1450px) {
-        height: 17rem;
-    }
     
     &::-webkit-scrollbar {
         width: 0.5rem;

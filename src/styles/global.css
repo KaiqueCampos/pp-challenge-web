@@ -30,11 +30,25 @@ p {
     }
 }
 
+@media (max-width: 1650px) {
+    html {
+        font-size: 80%;
+    }
+}
+
+
 @media (max-width: 1450px) {
     html {
         font-size: 70%;
     }
 }
+
+@media (max-width: 1250px) {
+    html {
+        font-size: 60%;
+    }
+}
+
 
 button {
     border: 0;
