@@ -14,5 +14,14 @@ export const InstitutionDashboardContainer = styled.div`
     @media (max-width: 1550px) {
         padding: 3.6rem 14rem;
     }
+
+    @media (max-width: 450px) {
+        padding: 3.6rem 0.5rem;
+
+        // title
+        h1{
+            margin-left: 1rem;
+        }
+    }
 `
 
