@@ -5,8 +5,8 @@ type collaboratorsActiveOrInactiveStatusProps = {
 }
 
 export const CollaboratorsActiveOrInactiveStatus = styled.div<collaboratorsActiveOrInactiveStatusProps>({
-        width: '5rem',
-        padding: '0.2rem 0',
+        width: '5rem !important',
+        padding: '0.2rem 0 !important',
 
         display: 'flex',
         alignItems: 'center',

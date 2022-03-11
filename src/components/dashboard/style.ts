@@ -27,4 +27,8 @@ export const DashboardContainer = styled.div`
             display: block;
         }
     }
+
+    @media (max-width: 450px) {
+        padding: 2.6rem 1rem;
+    }
 `

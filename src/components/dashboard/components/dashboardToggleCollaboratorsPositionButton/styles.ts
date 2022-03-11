@@ -68,7 +68,7 @@ export const MobileToggleListMenu = styled.div`
     position: absolute;
     z-index: 100;
 
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
 
@@ -92,6 +92,10 @@ export const MobileToggleListMenu = styled.div`
         button{
             background: #fff;
         }
+    }
+
+    @media (max-width: 450px) {
+        display: flex;
     }
 `
 
