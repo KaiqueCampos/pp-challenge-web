@@ -223,6 +223,10 @@ export function MobileDashboard() {
 
                                 </ListItemsInformations>
 
+                                <Link
+                                passHref
+                                href="role"
+                            >
                                 <ActionsButton
                                     id="actionsButton"
                                 >
@@ -234,6 +238,7 @@ export function MobileDashboard() {
                                         Ações
                                     </Font600Size16>
                                 </ActionsButton>
+                            </Link>
 
                                 <button
                                     onClick={(e) => {

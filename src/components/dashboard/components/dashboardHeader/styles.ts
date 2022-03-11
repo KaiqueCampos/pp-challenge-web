@@ -11,14 +11,14 @@ export const Container = styled.div`
         gap: 0;
 
         h1{
-            font-size: 18px;
+            font-size: 20px;
         }
     }
 `
 
 export const Button = styled.button`
     padding: 0.6rem;
-    border-radius: 50%;
+    border-radius: 0.5rem;
     transition: filter 0.2s;
 
     display: flex;

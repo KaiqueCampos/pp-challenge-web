@@ -1,5 +1,6 @@
 import { TitleSize16 } from "../../styles/emotion/Titles";
 import { RolePermissions } from "../../types/rolesTypes";
+import { HrDivisor } from "../hrDivisor/styles";
 import { RolesAndPermissionsInformation } from "./components/rolesAndPermissionsInformations";
 import { RolesAndPermissionsList } from "./components/rolesAndPermissionsList";
 import { Container } from "./styles";
@@ -21,6 +22,8 @@ export function RolesAndPermissionsDashboard({ role }: RolesAndPermissionsDashbo
                 department={role.department}
                 name={role.name}
            />
+
+           <HrDivisor/>
 
             <TitleSize16>
                 Listagem de permissões

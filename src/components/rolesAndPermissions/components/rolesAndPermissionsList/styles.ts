@@ -9,6 +9,12 @@ export const Container = styled.div`
 
     @media (max-width: 1450px) {
         height: 20rem;
+        overflow-y: hidden !important;
+        overflow: hidden;
+    }
+
+    @media (max-width: 450px) {
+        height: auto !important;
     }
     
     &::-webkit-scrollbar {

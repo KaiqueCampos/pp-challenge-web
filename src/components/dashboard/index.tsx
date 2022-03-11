@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useCollaborators } from "../../hooks/useCollaborators";
 import { TitleSize16 } from "../../styles/emotion/Titles";
 import { CollaboratorsListControlPanel } from "../collaborator/collaboratorsListControlPanel";
+import { HrDivisor } from "../hrDivisor/styles";
 import { MobileDashboard } from "../mobileDashboard";
 import { RolesListControlPanel } from "../roles/rolesListControlPanel";
 import { DashboardList } from "./components/dashboardList";
@@ -48,7 +49,7 @@ export function Dashboard() {
         }
       />
 
-      <hr />
+      <HrDivisor />
 
       <TitleSize16>
         {collaboratorsIsActive ? "Lista de Colaboradores" : "Listagem de cargos"}

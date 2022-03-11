@@ -7,6 +7,11 @@ export const Container = styled.div`
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 1.5rem;
 
+    @media (max-width: 450px){
+        grid-template-columns: none;
+        grid-template-rows: repeat(2, 1fr);
+    }
+
     fieldset {
         height: 4.2rem;
         position:relative ;
