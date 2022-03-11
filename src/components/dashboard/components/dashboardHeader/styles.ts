@@ -5,6 +5,15 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
     gap: 1.1rem;
+
+    @media (max-width: 450px){
+        padding-left: 0.5rem;
+        gap: 0;
+
+        h1{
+            font-size: 18px;
+        }
+    }
 `
 
 export const Button = styled.button`

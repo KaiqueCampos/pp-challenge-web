@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { useState } from 'react'
 import { useCollaborators } from '../../hooks/useCollaborators'
 import { useRoles } from '../../hooks/useRoles'
@@ -118,17 +119,22 @@ export function MobileDashboard() {
 
                             </ListItemsInformations>
 
-                            <ActionsButton
-                                id="actionsButton"
+                            <Link
+                                passHref
+                                href="collaborator/1"
                             >
-
-                                <img src="actionsIcon.svg" />
-                                <Font600Size16
-                                    color="#34423D"
+                                <ActionsButton
+                                    id="actionsButton"
                                 >
-                                    Ações
-                                </Font600Size16>
-                            </ActionsButton>
+
+                                    <img src="actionsIcon.svg" />
+                                    <Font600Size16
+                                        color="#34423D"
+                                    >
+                                        Ações
+                                    </Font600Size16>
+                                </ActionsButton>
+                            </Link>
 
                             <button
                                 onClick={(e) => {

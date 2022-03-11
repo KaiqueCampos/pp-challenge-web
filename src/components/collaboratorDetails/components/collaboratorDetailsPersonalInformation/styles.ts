@@ -4,7 +4,15 @@ export const Container = styled.div`
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 1.6rem;
+    gap: 1.6rem;
+
+    @media (max-width: 450px) {
+        display: block;
+        display: grid;
+        grid-template-columns: none;
+        grid-template-rows: (3,1fr);
+        gap: 0.5rem;        
+    }
 `
 
 export const PersonalInformation = styled.div`

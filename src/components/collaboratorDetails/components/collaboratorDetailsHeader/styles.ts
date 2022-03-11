@@ -18,5 +18,4 @@ export const Header = styled.div`
         flex-direction: column;
         gap: 0.4rem;
     }
-
 `

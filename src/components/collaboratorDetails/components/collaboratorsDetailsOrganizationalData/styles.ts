@@ -3,7 +3,7 @@ import styled from '@emotion/styled'
 export const Container = styled.div`
 
     width: 100%;
-    height: 17rem;
+    height: auto;
 
     border-radius: 0.5rem;
     border: 2px solid #EAEFED;
@@ -13,7 +13,6 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
-
 `
 
 export const OrganizationalData = styled.div`
@@ -83,5 +82,11 @@ export const OrganizationalData = styled.div`
             right: 1rem;
         }
 
+    }
+
+    @media (max-width: 450px) {
+        display: grid;
+        grid-template-columns: none;
+        grid-template-rows: repeat(4, 1fr);
     }
 `

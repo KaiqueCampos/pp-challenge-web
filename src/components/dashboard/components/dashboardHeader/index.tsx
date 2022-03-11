@@ -7,8 +7,8 @@ type DashboardHeaderProps = {
     hasBackButton?: boolean,
 }
 
-export function DashboardHeader({title, hasBackButton} : DashboardHeaderProps) {
-    return(
+export function DashboardHeader({ title, hasBackButton }: DashboardHeaderProps) {
+    return (
         <Container>
 
             {hasBackButton && (
@@ -17,14 +17,16 @@ export function DashboardHeader({title, hasBackButton} : DashboardHeaderProps) {
                     passHref
                 >
                     <Button>
-                        <img src="/leftArrow2.svg"/>
+                        <img src="/leftArrow2.svg" />
                     </Button>
                 </Link>
             )}
 
-           <TitleSize32>
+            <TitleSize32
+                color="#465953"
+            >
                 {title}
-           </TitleSize32>
+            </TitleSize32>
         </Container>
     )
 }
