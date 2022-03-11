@@ -11,4 +11,20 @@ export const DashboardContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
+
+    hr{
+
+        width: auto;
+        height: 2px;
+
+        background: #EAEFED;
+        border: none;
+        display: none;
+
+        margin: 0 -1.6rem;
+
+        @media (max-width: 450px) {
+            display: block;
+        }
+    }
 `

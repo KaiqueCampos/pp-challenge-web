@@ -23,6 +23,8 @@ export function Dashboard() {
             : "Pesquise por cargos"
         }
       />
+
+      <hr/>
       
       <TitleSize16>
         {collaboratorsIsActive ? "Lista de Colaboradores" : "Listagem de cargos"}
