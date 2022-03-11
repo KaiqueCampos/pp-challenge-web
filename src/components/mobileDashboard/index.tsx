@@ -1,254 +1,63 @@
-import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useApp } from '../../hooks/useApp'
 import { useCollaborators } from '../../hooks/useCollaborators'
 import { useRoles } from '../../hooks/useRoles'
-import { Font400Size12 } from '../../styles/emotion/Font400'
-import { Font500Size14 } from '../../styles/emotion/Font500'
-import { Font600Size12, Font600Size16 } from '../../styles/emotion/Font600'
-import { CollaboratorsActiveOrInactiveStatus } from '../collaborator/collaboratorsActiveOrInactiveStatus'
-import { ActionsButton, Container, ListItem, ListItemsInformations, RolesInformation } from './styles'
+import { Collaborator } from '../../types/collaboratorsTypes'
+import { Role } from '../../types/rolesTypes'
+import { CollaboratorsListItemsMobile } from './collaboratorListItemsMobile'
+import { RolesListItemsMobile } from './rolesListItemsMobile'
+import { Container } from './styles'
 
-type IsActiveProps = "active" | "inactive"
 
 export function MobileDashboard() {
 
-    const [isActive, setIsActive] = useState<IsActiveProps>("inactive")
+    const [collaboratorsDataMobileToShow, setCollaboratorsDataMobileToShow] = useState<Collaborator[]>()
+    const [rolesDataMobileToShow, setRolesDataMobileToShow] = useState<Role[]>()
 
     // get the data from collaborators context
     const {
+        collaboratorsData,
         collaboratorsIsActive,
-        indexOfChunkedArrayToShow,
-        chunkedCollaboratorsList,
     } = useCollaborators()
 
     const {
         rolesData,
     } = useRoles()
 
+    const {
+        sliceValue
+    } = useApp()
+
+    useEffect(() => {
+
+        setCollaboratorsDataMobileToShow(collaboratorsData?.slice(0, sliceValue))
+        setRolesDataMobileToShow(rolesData?.slice(0, sliceValue))
+        
+    }, [sliceValue])
+
     return (
         <Container>
 
-            {chunkedCollaboratorsList !== undefined && collaboratorsIsActive === true ? (
-                chunkedCollaboratorsList[indexOfChunkedArrayToShow]?.map(collaborator => {
+            {collaboratorsDataMobileToShow !== undefined && collaboratorsIsActive === true ? (
+                collaboratorsDataMobileToShow.map(collaborator => {
                     return (
-                        <ListItem
+                       <CollaboratorsListItemsMobile
+                            collaborator={collaborator}
                             key={collaborator.agent_id}
-                            className={isActive}
-                        >
-                            <Font600Size12
-                                color="#587169"
-                            >
-                                Nome Completo
-                            </Font600Size12>
-
-                            <div className="userInformation">
-
-                                <img src={collaborator.image} />
-
-                                <Font600Size12
-                                    color="#587169"
-                                >
-                                    {collaborator.name}
-                                </Font600Size12>
-                            </div>
-
-                            <ListItemsInformations
-                                id='ListItemsInformations'
-                            >
-
-                                <div>
-                                    <Font600Size12
-                                        color="#587169"
-                                    >
-                                        Departamento
-                                    </Font600Size12>
-
-                                    <Font400Size12
-                                        color="#587169"
-                                    >
-                                        {collaborator.department}
-                                    </Font400Size12>
-                                </div>
-
-                                <div>
-                                    <Font600Size12
-                                        color="#587169"
-                                    >
-                                        Cargo
-                                    </Font600Size12>
-
-                                    <Font400Size12
-                                        color="#587169"
-                                    >
-                                        {collaborator.role}
-                                    </Font400Size12>
-                                </div>
-
-                                <div>
-                                    <Font600Size12
-                                        color="#587169"
-                                    >
-                                        Unidade
-                                    </Font600Size12>
-
-                                    <Font400Size12
-                                        color="#587169"
-                                    >
-                                        {collaborator.branch}
-                                    </Font400Size12>
-                                </div>
-
-                                <div>
-                                    <Font600Size12
-                                        color="#587169"
-                                    >
-                                        Status
-                                    </Font600Size12>
-
-                                    <CollaboratorsActiveOrInactiveStatus
-                                        isActive={collaborator.status}
-                                    >
-                                        <Font500Size14
-                                            color="#34423D"
-                                        >
-                                            {collaborator.status === 'active' ? 'Ativo' : 'Inativo'}
-                                        </Font500Size14>
-                                    </CollaboratorsActiveOrInactiveStatus>
-
-                                </div>
-
-                            </ListItemsInformations>
-
-                            <Link
-                                passHref
-                                href="collaborator/1"
-                            >
-                                <ActionsButton
-                                    id="actionsButton"
-                                >
-
-                                    <img src="actionsIcon.svg" />
-                                    <Font600Size16
-                                        color="#34423D"
-                                    >
-                                        Ações
-                                    </Font600Size16>
-                                </ActionsButton>
-                            </Link>
-
-                            <button
-                                onClick={(e) => {
-                                    const element = e.currentTarget.parentElement
-                                    element !== null ? (element?.id === "active" ? (element.id = "inactive") : (element.id = "active")) : ""
-                                }}
-                            >
-                                <img src="./seeMore.svg" />
-                            </button>
-                        </ListItem>
+                       />
                     )
                 })
             ) : (<></>)}
 
-
             {
-                collaboratorsIsActive === false && rolesData !== undefined ? (
+                collaboratorsIsActive === false && rolesDataMobileToShow !== undefined ? (
 
-                    rolesData.map(roles => {
+                    rolesDataMobileToShow.map(roles => {
                         return (
-                            <ListItem
+                            <RolesListItemsMobile
+                                role={roles}
                                 key={`${roles.name}-${roles.departament}`}
-                                className={isActive}
-                            >
-                                <RolesInformation
-                                    id="rolesInformation"
-                                >
-                                    <Font600Size12
-                                        color="#587169"
-                                    >
-                                        Cargo
-                                    </Font600Size12>
-
-                                    <Font600Size12
-                                        color="#587169"
-                                    >
-                                        {roles.name}
-                                    </Font600Size12>
-                                </RolesInformation>
-
-                                <ListItemsInformations
-                                    id='ListItemsInformations'
-                                >
-                                    <div>
-                                        <Font600Size12
-                                            color="#587169"
-                                        >
-                                            Cargo
-                                        </Font600Size12>
-
-                                        <Font400Size12
-                                            color="#587169"
-                                        >
-                                            {roles.name}
-                                        </Font400Size12>
-                                    </div>
-
-                                    <div>
-                                        <Font600Size12
-                                            color="#587169"
-                                        >
-                                            Departamento
-                                        </Font600Size12>
-
-                                        <Font400Size12
-                                            color="#587169"
-                                        >
-                                            {roles.departament}
-                                        </Font400Size12>
-                                    </div>
-
-                                    <div>
-                                        <Font600Size12
-                                            color="#587169"
-                                        >
-                                            Colaboradores
-                                        </Font600Size12>
-
-                                        <Font400Size12
-                                            color="#587169"
-                                        >
-                                            {roles.agents_quantity}
-                                        </Font400Size12>
-                                    </div>
-
-
-                                </ListItemsInformations>
-
-                                <Link
-                                passHref
-                                href="role"
-                            >
-                                <ActionsButton
-                                    id="actionsButton"
-                                >
-
-                                    <img src="actionsIcon.svg" />
-                                    <Font600Size16
-                                        color="#34423D"
-                                    >
-                                        Ações
-                                    </Font600Size16>
-                                </ActionsButton>
-                            </Link>
-
-                                <button
-                                    onClick={(e) => {
-                                        const element = e.currentTarget.parentElement
-                                        element !== null ? (element?.id === "active" ? (element.id = "inactive") : (element.id = "active")) : ""
-                                    }}
-                                >
-                                    <img src="./seeMore.svg" />
-                                </button>
-                            </ListItem>
+                            />
                         )
                     })
                 ) : (<></>)

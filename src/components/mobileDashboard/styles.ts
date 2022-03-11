@@ -69,14 +69,6 @@ export const ListItem = styled.div`
             border-radius: 50%;
         }
     }
-
-    button{
-        position: absolute;
-        top: 2rem;
-        right: 1.4rem;
-        
-        background: #fff;
-    }
 `
 
 export const ListItemsInformations = styled.div`
@@ -91,23 +83,6 @@ export const ListItemsInformations = styled.div`
         flex-direction: column;
         gap: 0.2rem;
     }
-`
-
-export const ActionsButton = styled.button`
-    width: 100%;
-    height: 3.2rem;
-    
-    position: static !important;
-    
-    display: none;
-    align-items: center;
-    justify-content: center;
-    gap: 0.6rem;
-
-    border-radius: 0.5rem;
-    border: 2px solid #B5F1DD;
-
-    margin-top: 1rem;
 `
 
 export const RolesInformation = styled.div`
