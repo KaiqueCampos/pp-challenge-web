@@ -20,8 +20,6 @@ export function SeeMoreButton() {
         // change the img icon if div is activated or not
         const iconToChange = element?.getElementsByTagName('img')[2]
 
-        console.log(iconToChange)
-
         if (iconToChange !== undefined) {
             iconToChange.src = element?.id === 'active' ? './seeMoreUp.svg' : './seeMoreDown.svg'
         }
