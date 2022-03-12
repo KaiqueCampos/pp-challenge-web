@@ -8,14 +8,18 @@ width=100
 <p align='center'>https://pp-challenge-web-kaiquecampos.vercel.app/</p>
 <br>
 
-<p float="left">
-  <img src="https://user-images.githubusercontent.com/70600553/158025579-9de518e5-9b1d-461a-a835-3065c1ca5f13.jpeg" width="250" />
-  <img src="https://user-images.githubusercontent.com/70600553/158025580-b75713a6-9608-4ca1-bc9c-95eb73e0ef60.jpeg" width="250" />
-  <img src="https://user-images.githubusercontent.com/70600553/158025581-22ecd8bb-3f7a-4374-8e6a-e740cca1c888.jpeg" width="250" />
-  <img src="https://user-images.githubusercontent.com/70600553/158025582-20579aa7-1044-48b9-86d4-b35855064c46.jpeg" width="250" />
-  <img src="https://user-images.githubusercontent.com/70600553/158025583-d588916c-7743-4b6e-8a7c-7599e33aadfd.jpeg" width="250" />
-  <img src="https://user-images.githubusercontent.com/70600553/158025584-9edf3fbb-a778-4897-b650-1847be37c4ba.jpeg" width="250" />
-</p>
+<div align='center'>
+  <p float="center">
+    <img src="https://user-images.githubusercontent.com/70600553/158028486-56dbc704-5ef3-4163-bdb7-a31e293d8a4d.jpeg" width="240" />
+    <img src="https://user-images.githubusercontent.com/70600553/158028489-65a05ba3-279b-478d-a1e9-cfb46ec915b4.jpeg" width="240" />
+    <img src="https://user-images.githubusercontent.com/70600553/158025579-9de518e5-9b1d-461a-a835-3065c1ca5f13.jpeg" width="240" />
+    <img src="https://user-images.githubusercontent.com/70600553/158025580-b75713a6-9608-4ca1-bc9c-95eb73e0ef60.jpeg" width="240" />
+    <img src="https://user-images.githubusercontent.com/70600553/158025581-22ecd8bb-3f7a-4374-8e6a-e740cca1c888.jpeg" width="240" />
+    <img src="https://user-images.githubusercontent.com/70600553/158025582-20579aa7-1044-48b9-86d4-b35855064c46.jpeg" width="240" />
+    <img src="https://user-images.githubusercontent.com/70600553/158025583-d588916c-7743-4b6e-8a7c-7599e33aadfd.jpeg" width="240" />
+    <img src="https://user-images.githubusercontent.com/70600553/158025584-9edf3fbb-a778-4897-b650-1847be37c4ba.jpeg" width="240" />
+  </p>
+</div>
 
 ![Captura de Tela (967)](https://user-images.githubusercontent.com/70600553/158025587-07adb940-b33e-4169-82ad-570f803f6fd8.png)
 ![Captura de Tela (966)](https://user-images.githubusercontent.com/70600553/158025589-4a5f9998-2f8a-4a3f-9d73-8c2077fbed8f.png)
