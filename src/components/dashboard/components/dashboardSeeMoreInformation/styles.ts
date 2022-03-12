@@ -16,6 +16,8 @@ export const Container = styled.div`
     background: #fff;
     box-shadow: 0px 8px 24px rgba(165, 171, 179, 0.4);
 
+    z-index: 1000;
+
     button{
         background: none ;
         width: 100%;

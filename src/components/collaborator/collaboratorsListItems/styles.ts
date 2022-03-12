@@ -31,6 +31,7 @@ export const CollaboratorsListTr = styled.tr<CollaboratorsListTrProps>({
 
             "th:nth-child(1), th:nth-child(2), th:nth-child(3), th:nth-child(4)" : {
                 opacity: "0.5",
+                zIndex: 0,
             },
         }
     )
