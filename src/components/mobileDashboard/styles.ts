@@ -58,17 +58,6 @@ export const ListItem = styled.div`
     &[id = RolesListItems]{
         padding: 0rem;
     }
-
-    div[class = userInformation]{
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-
-        img{
-            width: 2.1rem;
-            border-radius: 50%;
-        }
-    }
 `
 
 export const ListItemsInformations = styled.div`

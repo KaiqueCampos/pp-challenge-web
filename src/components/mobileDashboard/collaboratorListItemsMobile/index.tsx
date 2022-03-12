@@ -8,6 +8,7 @@ import { ListItem, ListItemsInformations } from "../styles"
 import { CollaboratorsActiveOrInactiveStatus } from "../../collaborator/collaboratorsActiveOrInactiveStatus"
 import { SeeMoreButton } from "../seeMoreButton"
 import { ListItemsInformation } from "../collaboratorListItemsInformation"
+import { UserInformation } from "./styles"
 
 type IsActiveProps = "active" | "inactive"
 
@@ -28,9 +29,13 @@ export function CollaboratorsListItemsMobile({collaborator} : CollaboratorsListI
                 color="#587169"
             >
                 Nome Completo
+
             </Font600Size12>
 
-            <div className="userInformation">
+            <UserInformation 
+                className="userInformation"
+                isInactive={collaborator.status}
+            >
 
                 <img src={collaborator.image} />
 
@@ -39,7 +44,7 @@ export function CollaboratorsListItemsMobile({collaborator} : CollaboratorsListI
                 >
                     {collaborator.name}
                 </Font600Size12>
-            </div>
+            </UserInformation>
 
             <ListItemsInformation
                 branch={collaborator.branch}

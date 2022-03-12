@@ -30,6 +30,7 @@ export function CollaboratorsListItems({ collaborator }: CollaboratorsListItemPr
             <CollaboratorsListTr
                 key={collaborator.agent_id}
                 id="collaboratorsList"
+                isInactive={collaborator.status}
             >
                 <th>
                     <div className="collaboratorsNameAndProfileImage">
